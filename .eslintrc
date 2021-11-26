@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["security", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0
+  },
+  "env": {
+    "node": true
+  }
+}
