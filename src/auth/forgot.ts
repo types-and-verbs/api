@@ -49,7 +49,7 @@ const forgot = (options: Options) => async (req: Request, res: Response) => {
     await sendEmail({
       to: req.body.email,
       subject: 'Password reset instructions',
-      message: `You've requested a password reset. If this wasn't you ignore this email. <a href="${settings.projectSecret}?token=${resetPasswordToken}">Reset your password</a>`,
+      message: `You've requested a password reset. If this wasn't you ignore this email. <a href="${settings.projectUrl}?token=${resetPasswordToken}">Reset your password</a>`,
     });
 
     return res.send('Check your email for password reset instructions');

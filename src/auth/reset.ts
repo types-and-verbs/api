@@ -48,7 +48,7 @@ const reset = (options: Options) => async (req: Request, res: Response) => {
     user.password = req.body.password;
     // Remove token from user's model
     user.resetPasswordToken = null;
-    // Remove tokenExpire from user's model
+    // Remove tokenExpires from user's model
     user.resetPasswordExpires = null;
 
     await user.save();

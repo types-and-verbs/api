@@ -64,6 +64,8 @@ export interface User extends ExtendedDocument {
   salt: string | null;
   resetPasswordToken: string;
   resetPasswordExpires: Date;
+  magicLinkToken: string;
+  magicLinkExpires: Date;
   authenticate(plainText: string): boolean;
   makeSalt(): string;
   encryptPassword(password: string): string;

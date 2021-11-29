@@ -35,6 +35,14 @@ export function createUserModel(
       type: Date,
       default: undefined,
     },
+    magicLinkToken: {
+      type: String,
+      default: undefined,
+    },
+    magicLinkExpires: {
+      type: Date,
+      default: undefined,
+    },
 
     lastUpdated: {
       type: Date,

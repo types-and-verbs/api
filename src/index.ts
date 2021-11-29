@@ -12,6 +12,8 @@ import { setupEmail } from './utils/send-email';
 import { createUserModel } from './auth/user.model';
 import { setupSignup } from './auth/signup';
 import { setupSignin } from './auth/signin';
+import { setupMagicLinkRequest } from './auth/magicLinkRequest';
+import { setupMagicLinkSignin } from './auth/magicLinkSignin';
 import { setupForgot } from './auth/forgot';
 import { setupReset } from './auth/reset';
 import { setupUser } from './auth/user';
@@ -63,6 +65,8 @@ export function typesandverbs(userSettings: Settings): void {
     setupReset(app, options);
     setupUser(app, options);
     setupUserUpdate(app, options);
+    setupMagicLinkRequest(app, options);
+    setupMagicLinkSignin(app, options);
 
     // Loop through each model in type file and setup CRUD
     const models = parseTypes(settings.types);
