@@ -1,5 +1,6 @@
 import { Express, Response, Request } from 'express';
 import { Joi } from 'celebrate';
+import { isArray, isString } from 'lodash';
 
 import { GenericObject, Options, Model } from 'types';
 import { parseQuery } from './query-helpers';
@@ -18,6 +19,11 @@ export const setupFindMany = (
 
 const findMany =
   (options: Options, model: Model) => async (req: Request, res: Response) => {
+    // TODO why is this needed now?
+    const where = isString(req.query.where)
+      ? safeParse(req.query.where)
+      : req.query.where;
+
     const { value: query, error } = Joi.object({
       page: Joi.number().default(1).min(1),
       pageSize: Joi.number().default(10).min(1).max(50),
@@ -32,7 +38,7 @@ const findMany =
         page: parseInt(String(req.query.page), 10) || 1,
         pageSize: parseInt(String(req.query.pageSize), 10) || 10,
         populate: req.query.populate,
-        where: req.query.where,
+        where,
       },
       { abortEarly: false },
     );

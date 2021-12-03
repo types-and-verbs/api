@@ -3,7 +3,6 @@ import { celebrate, Joi, Segments } from 'celebrate';
 
 import { Options, User, StrippedUser } from 'types';
 import { createToken } from '../utils/user';
-import { sendEmail } from '../utils/send-email';
 import stripUser from '../utils/strip-user';
 
 export const setupMagicLinkSignin = (app: Express, options: Options): void => {
