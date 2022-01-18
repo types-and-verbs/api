@@ -20,11 +20,18 @@ export const user =
       if (!token) {
         return res.status(400).send('Not authorized');
       }
-      const { id: tokenUserId } = jwt.verify(token, options.settings.projectSecret);
+      const { id: tokenUserId } = jwt.verify(
+        token,
+        options.settings.projectSecret,
+      );
 
       const UserModel = options.connection.model<User>(`users`);
 
       const user = await UserModel.findById(tokenUserId);
+
+      if (!user) {
+        return res.status(400).send('Not authorized');
+      }
 
       return res.json(stripUser(user));
     } catch (err) {
