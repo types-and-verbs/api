@@ -1,6 +1,6 @@
 {
   "name": "@typesandverbs/server",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./dist/index.js",
   "files": ["dist/**/*"],
   "scripts": {
@@ -12,7 +12,8 @@
     "test": "jest --runInBand --ci",
     "test:dev": "jest --watchAll --runInBand",
     "test:coverage": "jest --runInBand --ci --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublishOnly": "npm test && npm run lint && npm build"
   },
   "license": "MIT",
   "dependencies": {
