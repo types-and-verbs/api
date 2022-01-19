@@ -1,10 +1,10 @@
 {
   "name": "@typesandverbs/server",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./dist/index.js",
   "files": ["dist/**/*"],
   "scripts": {
-    "build": "yarn lint && yarn test && rm -rf dist && tsc",
+    "build": "yarn lint && yarn test && rm -rf dist && tsc --module commonjs --target es5",
     "start": "node dist/index.js",
     "start:dev": "ts-node-dev ./src/index.ts | yarn pino-pretty",
     "start:test": "ts-node-dev ./src/run.ts | yarn pino-pretty",
