@@ -56,8 +56,9 @@ const magicLinkRequest =
 
       await sendEmail({
         to: req.body.email,
-        subject: 'Magic Link',
-        message: `Follow this link to <a href="${settings.projectUrl}?magiclink=${magiclinkToken}">login</a>`,
+        subject: `Your temporary ${settings.projectName} login code`,
+        // subject: `Your temporary ${settings.projectName} login code is ${magiclinkToken}`,
+        message: `<a href="${settings.projectUrl}?magiclink=${magiclinkToken}">Click here to login</a>`,
       });
 
       return res.send('Check your email for magic link');
